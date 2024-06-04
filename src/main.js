@@ -4,6 +4,7 @@ import {
   showErrorMessage,
   showLoadingIndicator,
   hideLoadingIndicator,
+  clearGallery,
 } from './js/render-functions.js';
 
 const searchForm = document.querySelector('form');
@@ -29,6 +30,7 @@ function onSearch(e) {
         showErrorMessage(
           'Sorry, there are no images matching your search query. Please try again!'
         );
+        clearGallery(gallery);
         return;
       }
       renderCard(hits, gallery);

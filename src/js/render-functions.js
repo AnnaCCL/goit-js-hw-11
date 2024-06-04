@@ -3,17 +3,13 @@ import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-let lightbox;
+const lightbox = new SimpleLightbox('.gallery a');
 
 export function renderCard(hits, gallery) {
   clearGallery(gallery);
   const markup = hits.map(hit => createGalleryCard(hit)).join('');
   gallery.insertAdjacentHTML('beforeend', markup);
-  if (lightbox) {
-    lightbox.refresh();
-  } else {
-    lightbox = new SimpleLightbox('.gallery a');
-  }
+  lightbox.refresh();
 }
 
 function createGalleryCard({
